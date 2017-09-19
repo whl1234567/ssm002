@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhiyou.ssm002.dao.INoticeDAO">
+	<resultMap type="Notice" id="NoticeMap">
+		<id property="noticeId" column="notice_id"/>
+		<result property="receiveId" column="receive_id" />
+		<result property="subject" column="subject" />
+		<result property="text" column="text" />
+		<result property="pubTime" column="pub_time" />
+		<result property="expireTime" column="expire_time" />
+		<result property="status" column="status" />
+		<result property="remark" column="remark" />
+		<result property="createTime" column="create_time" />
+		<result property="creater" column="creater" />
+		<result property="updateTime" column="update_time" />
+		<result property="updater" column="updater" />
+	</resultMap>
+
+	<sql id="columns">
+	notice_id,receive_id,subject,text,pub_time,expire_time,status,remark,create_time,creater,update_time,updater
+	</sql>
+
+	<select id="findAll" resultMap="NoticeMap">
+		SELECT 
+		<include refid="columns" />
+		FROM notice
+	</select>
+
+</mapper> 
